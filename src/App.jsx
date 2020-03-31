@@ -34,7 +34,7 @@ const App = props => {
   return (
     <IonApp>
       <IonHeader align='center'>
-        <img src={image} alt="logo"/>
+        <img src={image} alt='logo' />
       </IonHeader>
       <IonHeader>
         <Menu />
