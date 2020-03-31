@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { IonContent, IonGrid, IonButton } from '@ionic/react'
+import { IonContent, IonGrid, IonButton, IonCard, IonCardTitle, IonCardContent} from '@ionic/react'
 import { fetchSingleArticle } from "../state/actions/articleActions"
 import { bindActionCreators } from "redux"
 
@@ -11,14 +11,17 @@ const DisplayAllArticles = props => {
   let articleDisplay = props.articles.map(article => {
     return (
       <IonGrid key={article.id} align='center'>
-        <h1>{article.title}</h1>
-        <p>{article.lead}</p>
-        <IonButton
-          id={`open-article-${article.id}`}
-          onClick={() => singleArticle(article.id)}
-          key={article.id}>
-          Read More
-        </IonButton>
+        <IonCard
+        width="50vw">
+          <IonCardTitle>{article.title}</IonCardTitle>
+          <IonCardContent>{article.lead}</IonCardContent>
+          <IonButton
+            id={`open-article-${article.id}`}
+            onClick={() => singleArticle(article.id)}
+            key={article.id}>
+            Read More
+          </IonButton>
+        </IonCard>
       </IonGrid>
     )
   })
