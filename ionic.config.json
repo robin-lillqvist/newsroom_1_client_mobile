@@ -1,0 +1,7 @@
+{
+  "name": "newsSiteMobileTeam1",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
