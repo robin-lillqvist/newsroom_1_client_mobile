@@ -1,7 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-// import { Redirect, Route } from 'react-router-dom';
-// import { IonReactRouter } from '@ionic/react-router';
 import { IonApp, IonHeader } from '@ionic/react'
 import Menu from './components/Menu'
 import Footer from './components/Footer'
