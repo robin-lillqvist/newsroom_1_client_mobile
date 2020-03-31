@@ -1,12 +1,23 @@
-import React from 'react';
-import { IonContent } from '@ionic/react';
+import React from 'react'
+import { connect } from 'react-redux'
+import { IonContent, IonGrid } from '@ionic/react'
 
-const DisplayAllArticles = () => {
-  return (
-    <IonContent align="center">
-      This is where the articles go
-    </IonContent>
-  )
+const DisplayAllArticles = props => {
+  let articleDisplay = props.articles.map(article => {
+    return (
+      <IonGrid key={article.id} align='center'>
+        <h1>{article.title}</h1>
+        <p>{article.lead}</p>
+      </IonGrid>
+    )
+  })
+  return <IonContent id='article-list'>{articleDisplay}</IonContent>
 }
 
-export default DisplayAllArticles;
+const mapStateToProps = state => {
+  return {
+    articles: state.articles
+  }
+}
+
+export default connect(mapStateToProps)(DisplayAllArticles)

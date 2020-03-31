@@ -11,7 +11,6 @@ const Menu = () => {
       <IonSegmentButton>Food</IonSegmentButton>
       <IonSegmentButton>Sports</IonSegmentButton>
     </IonSegment>
-      
   )
 }
 
