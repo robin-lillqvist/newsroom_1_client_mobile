@@ -8,6 +8,7 @@ import Footer from './components/Footer'
 import DisplayAllArticles from './components/DisplayAllArticles'
 import { fetchArticles } from './state/actions/articleActions'
 import { bindActionCreators } from 'redux'
+import image from './images/berlingo.png'
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css'
@@ -32,8 +33,11 @@ const App = props => {
   props.fetchArticles()
   return (
     <IonApp>
+      <IonHeader align='center'>
+        <img src={image} alt="logo"/>
+      </IonHeader>
       <IonHeader>
-      <Menu />
+        <Menu />
       </IonHeader>
       <DisplayAllArticles />
       <Footer />
