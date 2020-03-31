@@ -10,7 +10,7 @@ const Menu = () => {
       <IonSegmentButton>Tech</IonSegmentButton>
       <IonSegmentButton>Food</IonSegmentButton>
       <IonSegmentButton>Sports</IonSegmentButton>
-    </IonSegment>  
+    </IonSegment>
   )
 }
 
