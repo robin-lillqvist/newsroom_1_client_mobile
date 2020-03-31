@@ -1,7 +1,7 @@
 import React from 'react';
 import { IonContent } from '@ionic/react';
 
-const ArticleList = () => {
+const DisplayAllArticles = () => {
   return (
     <IonContent align="center">
       This is where the articles go
@@ -9,4 +9,4 @@ const ArticleList = () => {
   )
 }
 
-export default ArticleList;
+export default DisplayAllArticles;

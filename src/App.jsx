@@ -1,10 +1,11 @@
 import React from 'react';
+import { connect } from "react-redux";
 // import { Redirect, Route } from 'react-router-dom';
 // import { IonReactRouter } from '@ionic/react-router';
 import { IonApp, IonHeader } from '@ionic/react';
 import Menu from './components/Menu';
 import Footer from './components/Footer';
-import ArticleList from './components/ArticleList';
+import DisplayAllArticles from './components/DisplayAllArticles';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -30,9 +31,9 @@ const App = () => (
     <IonHeader>
       <Menu />
     </IonHeader>
-    <ArticleList />
+    <DisplayAllArticles />
     <Footer />
   </IonApp>
 );
 
-export default App;
+export default connect()(App);
