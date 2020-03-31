@@ -4,10 +4,12 @@ import { IonSegment, IonSegmentButton } from '@ionic/react'
 const Menu = () => {
   return (
     <IonSegment>
-      <IonSegmentButton>Sports</IonSegmentButton>
-      <IonSegmentButton>Finance</IonSegmentButton>
+      <IonSegmentButton>All News</IonSegmentButton>
+      <IonSegmentButton>Latest News</IonSegmentButton>
       <IonSegmentButton>Culture</IonSegmentButton>
       <IonSegmentButton>Tech</IonSegmentButton>
+      <IonSegmentButton>Food</IonSegmentButton>
+      <IonSegmentButton>Sports</IonSegmentButton>
     </IonSegment>
       
   )
