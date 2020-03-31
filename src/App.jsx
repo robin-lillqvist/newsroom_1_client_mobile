@@ -7,6 +7,7 @@ import DisplayAllArticles from './components/DisplayAllArticles'
 import { fetchArticles } from './state/actions/articleActions'
 import { bindActionCreators } from 'redux'
 import image from './images/berlingo.png'
+import DisplaySingleArticle from './components/DisplaySingleArticle'
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css'
@@ -37,7 +38,8 @@ const App = props => {
       <IonHeader>
         <Menu />
       </IonHeader>
-      <DisplayAllArticles />
+      {props.showArticlesList && <DisplayAllArticles />}
+      {props.singleArticle && <DisplaySingleArticle />}
       <Footer />
     </IonApp>
   )
@@ -48,5 +50,11 @@ const mapDispatchToProps = dispatch => {
     fetchArticles: bindActionCreators(fetchArticles, dispatch)
   }
 }
+const mapStateToProps = state => {
+  return {
+    showArticlesList: state.showArticlesList,
+    singleArticle: state.singleArticle
+  };
+};
 
-export default connect(null, mapDispatchToProps)(App)
+export default connect(mapStateToProps, mapDispatchToProps)(App)
