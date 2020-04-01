@@ -9,16 +9,23 @@ const rootReducer = (state = initialState, action) => {
         ...action.payload
       };
     case actionTypes.GET_SINGLE_ARTICLE:
-    return {
-      ...state,
-      singleArticle: action.payload,
-      showArticlesList: false
-    };
+      return {
+        ...state,
+        singleArticle: action.payload,
+        showArticlesList: false
+      };
     case actionTypes.BACK_TO_ARTICLE_LIST:
       return {
         ...state,
         showArticlesList: true,
         singleArticle: undefined
+      };
+    case actionTypes.CATEGORY_SELECTION:
+      return {
+        ...state,
+        categoryName: action.payload.categoryName,
+        singleArticle: undefined,
+        showArticlesList: true,
       };
     default:
       return state;
