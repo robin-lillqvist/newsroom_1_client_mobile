@@ -4,10 +4,21 @@ import { IonContent, IonGrid, IonButton, IonCard, IonCardTitle, IonCardContent} 
 import { fetchSingleArticle } from "../state/actions/articleActions"
 import { bindActionCreators } from "redux"
 
-const DisplayAllArticles = props => {
+const DisplayArticles = props => {
   const singleArticle = articleID => {
     props.fetchSingleArticle(articleID);
+  };
+  let articles
+  if (props.categoryName) {
+    articles = props.articles.filter(article => {
+      return article.category === props.categoryName && article
+      debugger
+    })
+  } else {
+    articles = props.articles
   }
+
+  
   let articleDisplay = props.articles.map(article => {
     return (
       <IonGrid key={article.id} align='center'>
@@ -29,9 +40,10 @@ const DisplayAllArticles = props => {
 
 const mapStateToProps = state => {
   return {
-    articles: state.articles
-  }
-}
+    articles: state.articles,
+    categoryName: state.categoryName
+  };
+};
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -39,4 +51,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(DisplayAllArticles)
+export default connect(mapStateToProps, mapDispatchToProps)(DisplayArticles)

@@ -1,13 +1,10 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import { Switch, Route } from 'react-router-dom'
 import { IonApp, IonHeader } from '@ionic/react'
-import Menu from './components/Menu'
-import Footer from './components/Footer'
-import DisplayAllArticles from './components/DisplayAllArticles'
-import { fetchArticles } from './state/actions/articleActions'
-import { bindActionCreators } from 'redux'
 import image from './images/berlingo.png'
-import DisplaySingleArticle from './components/DisplaySingleArticle'
+import Menu from './components/Menu'
+import Display from './Display'
+import Footer from './components/Footer'
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css'
@@ -26,10 +23,9 @@ import '@ionic/react/css/flex-utils.css'
 import '@ionic/react/css/display.css'
 
 /* Theme variables */
- import './theme/variables.css';
+import './theme/variables.css'
 
 const App = props => {
-  props.fetchArticles()
   return (
     <IonApp>
       <IonHeader align='center'>
@@ -38,23 +34,13 @@ const App = props => {
       <IonHeader>
         <Menu />
       </IonHeader>
-      {props.showArticlesList && <DisplayAllArticles />}
-      {props.singleArticle && <DisplaySingleArticle />}
+      <Switch>
+        <Route exact path='/' component={Display}></Route>
+        <Route exact path={props.categoryName} component={Display}></Route>
+      </Switch>
       <Footer />
     </IonApp>
   )
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    fetchArticles: bindActionCreators(fetchArticles, dispatch)
-  }
-}
-const mapStateToProps = state => {
-  return {
-    showArticlesList: state.showArticlesList,
-    singleArticle: state.singleArticle
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default App
