@@ -15,7 +15,7 @@ const Menu = props => {
     })
   }
   return (
-    <IonSegment id='article-category'>
+    <IonSegment id='article-category' scrollable>
       <IonSegmentButton
         name='All News'
         id=''
@@ -25,7 +25,7 @@ const Menu = props => {
         onClick={handleItemClick}
         active={props.activeItem === 'all'}
       >
-        All News
+        All
       </IonSegmentButton>
       <IonSegmentButton
         name='Latest News'
@@ -36,7 +36,7 @@ const Menu = props => {
         onClick={handleItemClick}
         active={props.activeItem === 'latest_news'}
       >
-        Latest News
+        Latest
       </IonSegmentButton>
       <IonSegmentButton
         name='Culture'
