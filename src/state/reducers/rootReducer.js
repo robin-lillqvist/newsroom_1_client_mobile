@@ -26,7 +26,6 @@ const rootReducer = (state = initialState, action) => {
         categoryName: action.payload.categoryName,
         singleArticle: undefined,
         showArticlesList: true,
-        activeItem: action.payload.activeItem
       };
     default:
       return state;

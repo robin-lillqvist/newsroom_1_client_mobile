@@ -10,7 +10,6 @@ const Menu = props => {
       type: CATEGORY_SELECTION,
       payload: {
         categoryName: event.target.id,
-        activeItem: event.target.active
       }
     })
   }
@@ -19,66 +18,54 @@ const Menu = props => {
       <IonSegmentButton
         name='All News'
         id=''
-        color='yellow'
         as={Link}
         to={{ pathname: '/' }}
-        onClick={handleItemClick}
-        active={props.activeItem === 'all'}
+        onClick={handleItemClick}  
       >
         All
       </IonSegmentButton>
       <IonSegmentButton
         name='Latest News'
         id='latest_news'
-        color='red'
         as={Link}
         to={{ pathname: '/latest_news' }}
         onClick={handleItemClick}
-        active={props.activeItem === 'latest_news'}
       >
         Latest
       </IonSegmentButton>
       <IonSegmentButton
         name='Culture'
         id='culture'
-        color={'purple'}
         as={Link}
         to={{ pathname: '/culture' }}
         onClick={handleItemClick}
-        active={props.activeItem === 'culture'}
       >
         Culture
       </IonSegmentButton>
       <IonSegmentButton
         name='Tech'
         id='tech'
-        color={'blue'}
         as={Link}
         to={{ pathname: '/tech' }}
         onClick={handleItemClick}
-        active={props.activeItem === 'tech'}
       >
         Tech
       </IonSegmentButton>
       <IonSegmentButton
         name='Food'
         id='food'
-        color={'teal'}
         as={Link}
         to={{ pathname: '/food' }}
         onClick={handleItemClick}
-        active={props.activeItem === 'food'}
       >
         Food
       </IonSegmentButton>
       <IonSegmentButton
         name='Sports'
         id='sports'
-        color={'green'}
         as={Link}
         to={{ pathname: '/sports' }}
         onClick={handleItemClick}
-        active={props.activeItem === 'sports'}
       >
         Sports
       </IonSegmentButton>
