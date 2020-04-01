@@ -8,18 +8,15 @@ const DisplayArticles = props => {
   const singleArticle = articleID => {
     props.fetchSingleArticle(articleID);
   };
-  let articles
+  let articles;
   if (props.categoryName) {
     articles = props.articles.filter(article => {
-      return article.category === props.categoryName && article
-      debugger
-    })
+      return article.category === props.categoryName && article;
+    });
   } else {
-    articles = props.articles
+    articles = props.articles;
   }
-
-  
-  let articleDisplay = props.articles.map(article => {
+  let articleDisplay = articles.map(article => {
     return (
       <IonGrid key={article.id} align='center'>
         <IonCard>
