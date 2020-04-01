@@ -11,8 +11,7 @@ const DisplayAllArticles = props => {
   let articleDisplay = props.articles.map(article => {
     return (
       <IonGrid key={article.id} align='center'>
-        <IonCard
-        width="50vw">
+        <IonCard>
           <IonCardTitle>{article.title}</IonCardTitle>
           <IonCardContent>{article.lead}</IonCardContent>
           <IonButton
