@@ -36,7 +36,7 @@ const App = props => {
     <IonApp>
       <IonHeader align='center'>
         <IonToolbar color='light'>
-          <IonTitle align='center'>
+          <IonTitle align='center' class='ion-margin-top'>
             <img src={image} style={{ width: '60vw' }} alt='logo' />
           </IonTitle>
         </IonToolbar>
