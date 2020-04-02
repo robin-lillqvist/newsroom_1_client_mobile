@@ -18,6 +18,7 @@ const onLogin = (event, dispatch) => {
         payload: { authenticated: true, userEmail: response.data.email }
       });
       dispatch({ type: "GREETING", payload: `Welcome ${response.data.email}` });
+      dispatch({ type: 'CLOSE_LOGIN' });
     })
 
     .catch(error => {
@@ -26,7 +27,7 @@ const onLogin = (event, dispatch) => {
     });
 };
 
-const onLogout = dispatch => {
+const onLogout = (dispatch) => {
   auth.signOut().then(() => {
     dispatch({
       type: "AUTHENTICATE",
