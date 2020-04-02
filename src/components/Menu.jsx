@@ -1,5 +1,5 @@
 import React from 'react'
-import { IonSegment, IonSegmentButton } from '@ionic/react'
+import { IonSegment, IonSegmentButton, IonToolbar } from '@ionic/react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { CATEGORY_SELECTION } from '../state/actions/actionTypes'
@@ -14,13 +14,15 @@ const Menu = props => {
     })
   }
   return (
-    <IonSegment id='article-category' color="light" scrollable>
-      <IonSegmentButton
+    <IonToolbar no-border-top color="warning">
+    <IonSegment id='article-category' scrollable>
+      <IonSegmentButton 
         name='All News'
         id=''
         as={Link}
         to={{ pathname: '/' }}
         onClick={handleItemClick}
+        
       >
         All
       </IonSegmentButton>
@@ -70,6 +72,7 @@ const Menu = props => {
         Sports
       </IonSegmentButton>
     </IonSegment>
+    </IonToolbar>
   )
 }
 

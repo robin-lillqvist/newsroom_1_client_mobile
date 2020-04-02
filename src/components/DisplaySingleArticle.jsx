@@ -1,27 +1,37 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { IonContent, IonGrid, IonButton } from '@ionic/react'
+import { IonContent, IonButton, IonText, IonCard } from '@ionic/react'
 
 const DisplaySingleArticle = props => {
   let articleDetails
   let article = props.singleArticle
   articleDetails = (
-    <IonGrid key={article.id} align='center'>
-      <h1>{article.title}</h1>
-      <h4>{article.lead}</h4>
-      <p>{article.content}</p>
+    <IonCard key={article.id} align='center' color='light' class='ion-padding'>
+      <IonText>
+        <h1>{article.title}</h1>
+      </IonText>
+      <IonText align='left'>
+        <h5>{article.lead}</h5>
+      </IonText>
+      <IonText color='dark' align='left'>
+        <p>{article.content}</p>
+      </IonText>
       <IonButton
+        fill='outline'
         id='back-button'
         color='danger'
         onClick={() => props.dispatch({ type: 'BACK_TO_ARTICLE_LIST' })}
         key={article.id}
-      >
-        Back
-      </IonButton>
-    </IonGrid>
+      >Back</IonButton>
+    </IonCard>
   )
   return (
-    <IonContent id='single-article'>
+    <IonContent
+      fullscreen
+      class='ion-padding'
+      id='single-article'
+      color='light'
+    >
       {articleDetails}
     </IonContent>
   )

@@ -1,6 +1,12 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
-import { IonApp, IonHeader } from '@ionic/react'
+import {
+  IonApp,
+  IonContent,
+  IonHeader,
+  IonToolbar,
+  IonTitle
+} from '@ionic/react'
 import image from './images/berlingo.png'
 import Menu from './components/Menu'
 import Display from './Display'
@@ -29,15 +35,22 @@ const App = props => {
   return (
     <IonApp>
       <IonHeader align='center'>
-        <img src={image} alt='logo' />
+        <IonToolbar color="light">
+          <IonTitle align='center'>
+            <img src={image} alt='logo' />
+          </IonTitle>
+        </IonToolbar>
       </IonHeader>
       <IonHeader>
         <Menu />
       </IonHeader>
-      <Switch>
-        <Route exact path='/' component={Display}></Route>
-        <Route exact path={props.categoryName} component={Display}></Route>
-      </Switch>
+      <IonContent>
+        <Switch>
+          <Route exact path='/' component={Display}></Route>
+          <Route exact path={props.categoryName} component={Display}></Route>
+        </Switch>
+      
+      </IonContent>
       <Footer />
     </IonApp>
   )

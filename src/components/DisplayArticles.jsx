@@ -2,7 +2,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 import {
   IonContent,
-  IonGrid,
   IonButton,
   IonCard,
   IonCardTitle,
@@ -25,23 +24,32 @@ const DisplayArticles = props => {
   }
   let articleDisplay = articles.map(article => {
     return (
-      <IonGrid key={article.id} align='center'>
-        <IonCard>
-          <IonCardTitle>{article.title}</IonCardTitle>
-          <IonCardContent>{article.lead}</IonCardContent>
-          <IonButton
-            color='danger'
-            id={`open-article-${article.id}`}
-            onClick={() => singleArticle(article.id)}
-            key={article.id}
-          >
-            Read More
-          </IonButton>
-        </IonCard>
-      </IonGrid>
+      <IonCard
+        key={article.id}
+        align='center'
+        color='#eb445a'
+        shade='#eb445a'
+        class='ion-padding'
+      >
+        <IonCardTitle mode='ios'>{article.title}</IonCardTitle>
+        <IonCardContent mode='ios'>{article.lead}</IonCardContent>
+        <IonButton
+          fill='outline'
+          color='danger'
+          id={`open-article-${article.id}`}
+          onClick={() => singleArticle(article.id)}
+          key={article.id}
+        >
+          Read More
+        </IonButton>
+      </IonCard>
     )
   })
-  return <IonContent id='article-list'>{articleDisplay}</IonContent>
+  return (
+    <IonContent id='article-list' color='light'>
+      {articleDisplay}
+    </IonContent>
+  )
 }
 
 const mapStateToProps = state => {

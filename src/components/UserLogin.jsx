@@ -12,14 +12,24 @@ const Login = props => {
   if (!authenticated) {
     login = (
       <IonContent>
-        <IonCard>
+        <IonCard class='ion-padding'>
           <form id='login-form' onSubmit={event => onLogin(event, dispatch)}>
-            <IonInput id='email' name='email' placeholder='Email' />
+            <IonInput
+              id='email'
+              color='dark'
+              name='email'
+              placeholder='Email'
+              type="email"
+              class='ion-padding'
+              required
+            />
             <IonInput
               id='password'
+              color='dark'
               name='password'
               type='password'
               placeholder='Password'
+              required
             />
             <IonButton
               id='login-button'
@@ -29,11 +39,14 @@ const Login = props => {
             >
               Submit
             </IonButton>
+            <IonButton
+              color='danger'
+              onClick={() => dispatch({ type: 'CLOSE_LOGIN' })}
+            >
+              Close
+            </IonButton>
           </form>
         </IonCard>
-        <IonButton onClick={() => dispatch({ type: 'CLOSE_LOGIN' })}>
-          Close
-        </IonButton>
       </IonContent>
     )
   } else {
