@@ -12,7 +12,7 @@ const DisplaySingleArticle = props => {
   if (premiumUser === false && articlePremium === true) {
     article.content = article.content.substring(0, 200) + "...";
     premiumMessage = (
-      <IonText id = 'premium-message'>This article requires a premium membership</IonText>
+      <IonText id = 'premium-message' align='left'>This article requires a premium membership</IonText>
     )
   }
   articleDetails = (
@@ -25,14 +25,15 @@ const DisplaySingleArticle = props => {
       </IonText>
       <IonText color='dark' align='left'>
         <p>{article.content}</p>
-        {premiumMessage}
       </IonText>
+      {premiumMessage}
       <IonButton
         fill='outline'
         id='back-button'
         color='danger'
         onClick={() => props.dispatch({ type: 'BACK_TO_ARTICLE_LIST' })}
         key={article.id}
+        class = 'ion-margin-top'
       >Back</IonButton>
     </IonCard>
   )
