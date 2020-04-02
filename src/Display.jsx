@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-// import { useEffect } from 'react'
 import DisplayArticles from './components/DisplayArticles'
 import { fetchArticles } from './state/actions/articleActions'
 import { bindActionCreators } from 'redux'
