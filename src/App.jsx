@@ -35,9 +35,9 @@ const App = props => {
   return (
     <IonApp>
       <IonHeader align='center'>
-        <IonToolbar color="light">
+        <IonToolbar color='light'>
           <IonTitle align='center'>
-            <img src={image} alt='logo' />
+            <img src={image} style={{ width: '60vw' }} alt='logo' />
           </IonTitle>
         </IonToolbar>
       </IonHeader>
@@ -49,7 +49,6 @@ const App = props => {
           <Route exact path='/' component={Display}></Route>
           <Route exact path={props.categoryName} component={Display}></Route>
         </Switch>
-      
       </IonContent>
       <Footer />
     </IonApp>
