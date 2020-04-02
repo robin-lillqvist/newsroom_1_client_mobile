@@ -9,7 +9,7 @@ const Menu = props => {
     props.dispatch({
       type: CATEGORY_SELECTION,
       payload: {
-        categoryName: event.target.id,
+        categoryName: event.target.id
       }
     })
   }
@@ -20,7 +20,7 @@ const Menu = props => {
         id=''
         as={Link}
         to={{ pathname: '/' }}
-        onClick={handleItemClick}  
+        onClick={handleItemClick}
       >
         All
       </IonSegmentButton>

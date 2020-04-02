@@ -25,7 +25,31 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         categoryName: action.payload.categoryName,
         singleArticle: undefined,
+        showArticlesList: true
+      };
+    case actionTypes.LOGIN_USER:
+      return {
+        ...state,
+        showLogin: true,
+        showArticlesList: false,
+        singleArticle: undefined
+      };
+    case actionTypes.CLOSE_LOGIN:
+      return {
+        ...state,
+        showLogin: false,
         showArticlesList: true,
+        message: ""
+      };
+    case actionTypes.GREETING:
+      return {
+        ...state,
+        message: action.payload
+      };
+    case actionTypes.AUTHENTICATE:
+      return {
+        ...state,
+        ...action.payload
       };
     default:
       return state;
