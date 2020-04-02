@@ -13,8 +13,8 @@ const Footer = props => {
   if (authenticated) {
     button = (
       <IonButton
-        name='login'
-        id='login'
+        name='logout'
+        id='logout'
         color='danger'
         onClick={() => onLogout(dispatch)}
       >

@@ -6,7 +6,6 @@ import { IonContent, IonButton, IonInput, IonCard } from '@ionic/react'
 const Login = props => {
   const dispatch = useDispatch()
   const authenticated = useSelector(state => state.authenticated)
-  // const message = useSelector(state => state.message)
 
   let login
   if (!authenticated) {
