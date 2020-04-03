@@ -5,7 +5,8 @@ import {
   IonButton,
   IonCard,
   IonCardTitle,
-  IonCardContent
+  IonCardContent,
+  IonImg
 } from '@ionic/react'
 import { fetchSingleArticle } from '../state/actions/articleActions'
 import { bindActionCreators } from 'redux'
@@ -31,6 +32,7 @@ const DisplayArticles = props => {
         shade='#eb445a'
         class='ion-padding'
       >
+        <IonImg src={article.image} alt="image" />
         <IonCardTitle mode='ios'>{article.title}</IonCardTitle>
         <IonCardContent mode='ios'>{article.lead}</IonCardContent>
         <IonButton

@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect, useSelector } from 'react-redux'
-import { IonContent, IonButton, IonText, IonCard } from '@ionic/react'
+import { IonContent, IonButton, IonText, IonCard, IonImg } from '@ionic/react'
 
 const DisplaySingleArticle = props => {
   const premiumUser = useSelector(state => state.premiumUser);
@@ -20,6 +20,7 @@ const DisplaySingleArticle = props => {
       <IonText>
         <h1>{article.title}</h1>
       </IonText>
+      <IonImg alt="image" src={article.image} />
       <IonText align='left'>
         <h5>{article.lead}</h5>
       </IonText>
