@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect, useSelector } from 'react-redux'
 import { IonContent, IonButton, IonText, IonCard, IonImg } from '@ionic/react'
+import imageLogo from '../images/berlingo.png'
 
 const DisplaySingleArticle = props => {
   const premiumUser = useSelector(state => state.premiumUser);
@@ -8,6 +9,7 @@ const DisplaySingleArticle = props => {
   let articlePremium = props.singleArticle.premium
   let article = props.singleArticle
   let premiumMessage = ""
+  let image 
 
   if (premiumUser === false && articlePremium === true) {
     article.content = article.content.substring(0, 200) + "...";
@@ -15,12 +17,18 @@ const DisplaySingleArticle = props => {
       <IonText id = 'premium-message' align='left'>This article requires a premium membership</IonText>
     )
   }
+  if (article.image) {
+    image = article.image
+  }
+  else {
+   image = imageLogo
+  }
   articleDetails = (
     <IonCard key={article.id} align='center' color='light' class='ion-padding'>
       <IonText>
         <h1>{article.title}</h1>
       </IonText>
-      <IonImg alt="image" src={article.image} />
+      <IonImg alt="image" src={image} />
       <IonText align='left'>
         <h5>{article.lead}</h5>
       </IonText>
