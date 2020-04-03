@@ -5,16 +5,19 @@ import {
   IonButton,
   IonCard,
   IonCardTitle,
-  IonCardContent
+  IonCardContent,
+  IonImg
 } from '@ionic/react'
 import { fetchSingleArticle } from '../state/actions/articleActions'
 import { bindActionCreators } from 'redux'
+import imagePlaceholder from '../images/placeholder.png'
 
 const DisplayArticles = props => {
   const singleArticle = articleID => {
     props.fetchSingleArticle(articleID)
   }
   let articles
+  let image
   if (props.categoryName) {
     articles = props.articles.filter(article => {
       return article.category === props.categoryName && article
@@ -23,6 +26,12 @@ const DisplayArticles = props => {
     articles = props.articles
   }
   let articleDisplay = articles.map(article => {
+    if (article.image) {
+      image = article.image
+    }
+    else {
+     image = imagePlaceholder
+    }
     return (
       <IonCard
         key={article.id}
@@ -31,6 +40,7 @@ const DisplayArticles = props => {
         shade='#eb445a'
         class='ion-padding'
       >
+        <IonImg src={image} alt="image" />
         <IonCardTitle mode='ios'>{article.title}</IonCardTitle>
         <IonCardContent mode='ios'>{article.lead}</IonCardContent>
         <IonButton
