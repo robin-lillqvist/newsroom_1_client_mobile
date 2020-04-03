@@ -10,7 +10,7 @@ import {
 } from '@ionic/react'
 import { fetchSingleArticle } from '../state/actions/articleActions'
 import { bindActionCreators } from 'redux'
-import imageLogo from '../images/berlingo.png'
+import imagePlaceholder from '../images/placeholder.png'
 
 const DisplayArticles = props => {
   const singleArticle = articleID => {
@@ -30,7 +30,7 @@ const DisplayArticles = props => {
       image = article.image
     }
     else {
-     image = imageLogo
+     image = imagePlaceholder
     }
     return (
       <IonCard

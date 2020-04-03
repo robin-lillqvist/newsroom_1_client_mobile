@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect, useSelector } from 'react-redux'
 import { IonContent, IonButton, IonText, IonCard, IonImg } from '@ionic/react'
-import imageLogo from '../images/berlingo.png'
+import imagePlaceholder from '../images/placeholder.png'
 
 const DisplaySingleArticle = props => {
   const premiumUser = useSelector(state => state.premiumUser);
@@ -21,8 +21,9 @@ const DisplaySingleArticle = props => {
     image = article.image
   }
   else {
-   image = imageLogo
+   image = imagePlaceholder
   }
+
   articleDetails = (
     <IonCard key={article.id} align='center' color='light' class='ion-padding'>
       <IonText>
