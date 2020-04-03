@@ -21,7 +21,7 @@ const onLogin = (event, dispatch) => {
       dispatch({ type: "CLOSE_LOGIN" });
     })
     .catch(error => {
-      let errorMessage = error.response.data.errors[0];
+      let errorMessage = error.message;
       dispatch({ type: "GREETING", payload: errorMessage });
     });
 };
@@ -29,10 +29,11 @@ const onLogin = (event, dispatch) => {
 const onRegistration = (event, dispatch) => {
   event.preventDefault();
   auth
-    .signUp({
+    .signUp(
+      {
       email: event.target.elements.email.value,
-      password: event.target.elements.password.value},
-      "/"
+      password: event.target.elements.password.value
+      },
     )
     .then(response => {
       dispatch({
@@ -43,7 +44,7 @@ const onRegistration = (event, dispatch) => {
       dispatch({ type: "CLOSE_REGISTRATION" });
     })
     .catch(error => {
-      let errorMessage = error.response.data.errors[0];
+      let errorMessage = error.message;
       dispatch({ type: "GREETING", payload: errorMessage });
     });
 };
