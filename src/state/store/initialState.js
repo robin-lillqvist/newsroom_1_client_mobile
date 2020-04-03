@@ -6,6 +6,7 @@ const initialState = {
     showArticlesByCategory: false,
     activeItem: "all",
     showLogin: false,
+    showRegistration: false,
     authenticate: false,
     userEmail: undefined,
     message: "",
