@@ -34,10 +34,24 @@ const rootReducer = (state = initialState, action) => {
         showArticlesList: false,
         singleArticle: undefined
       };
+      case actionTypes.REGISTER_USER:
+        return {
+          ...state,
+          showRegistration: true,
+          showArticlesList: false,
+          singleArticle: undefined
+        };
     case actionTypes.CLOSE_LOGIN:
       return {
         ...state,
         showLogin: false,
+        showArticlesList: true,
+        message: ""
+      };
+    case actionTypes.CLOSE_REGISTRATION:
+      return {
+        ...state,
+        showRegistration: false,
         showArticlesList: true,
         message: ""
       };

@@ -1,7 +1,7 @@
 import JtockAuth from "j-tockauth";
 
 const auth = new JtockAuth({
-  host: "https://newsroom-team-1.herokuapp.com/",
+  host: "https://newsroom-team-1.herokuapp.com",
   prefixUrl: "/api"
 });
 
@@ -21,7 +21,30 @@ const onLogin = (event, dispatch) => {
       dispatch({ type: "CLOSE_LOGIN" });
     })
     .catch(error => {
-      let errorMessage = error.response.data.errors[0];
+      let errorMessage = error.message;
+      dispatch({ type: "GREETING", payload: errorMessage });
+    });
+};
+
+const onRegistration = (event, dispatch) => {
+  event.preventDefault();
+  auth
+    .signUp(
+      {
+      email: event.target.elements.email.value,
+      password: event.target.elements.password.value
+      },
+    )
+    .then(response => {
+      dispatch({
+        type: "AUTHENTICATE",
+        payload: { authenticated: true, userEmail: response.data.email }
+      });
+      dispatch({ type: "GREETING", payload: `Welcome ${response.data.email}` });
+      dispatch({ type: "CLOSE_REGISTRATION" });
+    })
+    .catch(error => {
+      let errorMessage = error.message;
       dispatch({ type: "GREETING", payload: errorMessage });
     });
 };
@@ -36,4 +59,4 @@ const onLogout = dispatch => {
   });
 };
 
-export { onLogin, onLogout };
+export { onLogin, onLogout, onRegistration };

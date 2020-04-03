@@ -5,14 +5,18 @@ import { fetchArticles } from './state/actions/articleActions'
 import { bindActionCreators } from 'redux'
 import DisplaySingleArticle from './components/DisplaySingleArticle'
 import Login from './components/UserLogin'
+import Register from './components/UserRegistration'
 
 const Display = props => {
-  props.fetchArticles()
+  if (!props.showRegistration && !props.showLogin && !props.singleArticle) {
+    props.fetchArticles()
+  }
   return (
     <>
       {props.showArticlesList && <DisplayArticles />}
       {props.singleArticle && <DisplaySingleArticle />}
       {props.showLogin && <Login />}
+      {props.showRegistration && <Register />}
     </>
   )
 }
@@ -26,7 +30,8 @@ const mapStateToProps = state => {
     showArticlesList: state.showArticlesList,
     singleArticle: state.singleArticle,
     showArticlesByCategory: state.showArticlesByCategory,
-    showLogin: state.showLogin
+    showLogin: state.showLogin,
+    showRegistration: state.showRegistration
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Display)
