@@ -7,9 +7,9 @@ const Register = props => {
   const dispatch = useDispatch()
   const authenticated = useSelector(state => state.authenticated)
 
-  let login
+  let register
   if (!authenticated) {
-    login = (
+    register = (
       <IonContent>
         <IonCard class='ion-padding'>
           <form
@@ -60,10 +60,10 @@ const Register = props => {
       </IonContent>
     )
   } else {
-    login = <></>
+    register = <></>
   }
 
-  return <>{login}</>
+  return <>{register}</>
 }
 
 export default Register

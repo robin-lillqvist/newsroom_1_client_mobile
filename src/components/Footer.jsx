@@ -33,8 +33,8 @@ const Footer = props => {
           Login
         </IonButton>
         <IonButton
-          name='login'
-          id='login'
+          name='register'
+          id='register'
           color='danger'
           onClick={() => props.dispatch({ type: REGISTER_USER })}
         >
