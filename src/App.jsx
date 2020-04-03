@@ -34,10 +34,10 @@ import './theme/variables.css'
 const App = props => {
   return (
     <IonApp>
-      <IonHeader align='center'>
+      <IonHeader align='center' mode="md">
         <IonToolbar color='light'>
-          <IonTitle align='center' class='ion-margin-top'>
-            <img src={image} style={{ width: '60vw' }} alt='logo' />
+          <IonTitle align='center' >
+            <img src={image} alt='logo'/>
           </IonTitle>
         </IonToolbar>
       </IonHeader>
