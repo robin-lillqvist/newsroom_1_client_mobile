@@ -1,6 +1,6 @@
 {
-  "appId": "io.ionic.starter",
-  "appName": "newsSiteMobileTeam1",
+  "appId": "io.ionic.BerlingoNewsApp",
+  "appName": "BerlingoNewsApp",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "build",
