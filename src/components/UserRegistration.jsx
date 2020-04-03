@@ -15,8 +15,7 @@ const Register = props => {
           <form
             id='registration-form'
             onSubmit={event => onRegistration(event, dispatch)}
-          >
-            <IonInput
+          ><IonInput
               id='email'
               color='dark'
               name='email'
@@ -33,19 +32,11 @@ const Register = props => {
               placeholder='Password'
               required
             />
-            {/* <IonInput
-              id='password_confirmation'
-              color='dark'
-              name='password_confirmation'
-              type='password'
-              placeholder='Confirm password'
-              required
-            /> */}
             <IonButton
               id='register-button'
               color='danger'
               type='submit'
-              value='Login'
+              value='Register'
             >
               Submit
             </IonButton>

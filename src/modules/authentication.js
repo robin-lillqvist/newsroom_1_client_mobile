@@ -28,7 +28,6 @@ const onLogin = (event, dispatch) => {
 
 const onRegistration = (event, dispatch) => {
   event.preventDefault();
-  debugger
   auth
     .signUp({
       email: event.target.elements.email.value,
@@ -36,7 +35,6 @@ const onRegistration = (event, dispatch) => {
       "/"
     )
     .then(response => {
-      debugger
       dispatch({
         type: "AUTHENTICATE",
         payload: { authenticated: true, userEmail: response.data.email }
@@ -45,7 +43,6 @@ const onRegistration = (event, dispatch) => {
       dispatch({ type: "CLOSE_REGISTRATION" });
     })
     .catch(error => {
-      debugger
       let errorMessage = error.response.data.errors[0];
       dispatch({ type: "GREETING", payload: errorMessage });
     });
