@@ -22,7 +22,7 @@ const DisplaySingleArticle = props => {
         </div>
         <div>
           <IonText id='premium-message' className='ion-margin'>
-            To buy a subscription, please visit our{'  '}
+            To buy a subscription, please visit our
             <a href='https://newsroom-client-news-site.netlify.com/' style={{margin: "5px"}}>main site</a>
           </IonText>
         </div>
