@@ -4,24 +4,35 @@ import { IonContent, IonButton, IonText, IonCard, IonImg } from '@ionic/react'
 import imagePlaceholder from '../images/placeholder.png'
 
 const DisplaySingleArticle = props => {
-  const premiumUser = useSelector(state => state.premiumUser);
+  const premiumUser = useSelector(state => state.premiumUser)
   let articleDetails
   let articlePremium = props.singleArticle.premium
   let article = props.singleArticle
-  let premiumMessage = ""
-  let image 
+  let premiumMessage = ''
+  let image
 
   if (premiumUser === false && articlePremium === true) {
-    article.content = article.content.substring(0, 200) + "...";
+    article.content = article.content.substring(0, 200) + '...'
     premiumMessage = (
-      <IonText id = 'premium-message' align='left'>This article requires a premium membership</IonText>
+      <>
+        <div>
+          <IonText id='premium-message' className='ion-margin'>
+            This article requires a premium membership
+          </IonText>
+        </div>
+        <div>
+          <IonText id='premium-message' className='ion-margin'>
+            To buy a subscription, please visit our
+            <a href='https://newsroom-client-news-site.netlify.com/' style={{margin: "5px"}}>main site</a>
+          </IonText>
+        </div>
+      </>
     )
   }
   if (article.image) {
     image = article.image
-  }
-  else {
-   image = imagePlaceholder
+  } else {
+    image = imagePlaceholder
   }
 
   articleDetails = (
@@ -29,7 +40,7 @@ const DisplaySingleArticle = props => {
       <IonText>
         <h1>{article.title}</h1>
       </IonText>
-      <IonImg alt="image" src={image} />
+      <IonImg alt='image' src={image} />
       <IonText align='left'>
         <h5>{article.lead}</h5>
       </IonText>
@@ -43,8 +54,10 @@ const DisplaySingleArticle = props => {
         color='danger'
         onClick={() => props.dispatch({ type: 'BACK_TO_ARTICLE_LIST' })}
         key={article.id}
-        class = 'ion-margin-top'
-      >Back</IonButton>
+        class='ion-margin-top'
+      >
+        Back
+      </IonButton>
     </IonCard>
   )
   return (
